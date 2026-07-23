@@ -1,0 +1,553 @@
+/* ============================================================
+   Deniele Therese C. Lodovice — Portfolio
+   Theme: "source tree" — an IT student's academic journey
+   told through the vocabulary she actually works in: files,
+   folders, commits, and a terminal.
+   ============================================================ */
+
+:root {
+  --ink: #10141c;
+  --surface: #171d2b;
+  --surface-2: #202942;
+  --line: #2a3350;
+  --paper: #eae6da;
+  --muted: #8a93ad;
+  --amber: #f2a63c;
+  --amber-dim: #c9822a;
+  --mint: #6fe3b4;
+  --radius: 10px;
+  --mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+  --body-font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  background-image:
+    radial-gradient(ellipse at top right, rgba(242, 166, 60, 0.06), transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(111, 227, 180, 0.05), transparent 50%);
+  color: var(--paper);
+  font-family: var(--body-font);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--amber);
+  color: var(--ink);
+  padding: 8px 14px;
+  z-index: 100;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+/* ---------- Layout shell ---------- */
+
+.shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- Sidebar: file explorer ---------- */
+
+.tree-nav {
+  border-right: 1px solid var(--line);
+  background: var(--surface);
+  padding: 28px 0 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.tree-brand {
+  padding: 0 22px 20px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 14px;
+}
+
+.tree-brand .name {
+  font-family: var(--mono);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--paper);
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.tree-brand .role {
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: block;
+  margin-top: 4px;
+}
+
+.tree-root {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding: 0 22px 10px;
+  letter-spacing: 0.02em;
+}
+
+.tree-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.tree-list li { margin: 1px 0; }
+
+.tree-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  padding: 8px 12px;
+  border-radius: 7px;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.tree-link .glyph { opacity: 0.85; width: 1.1em; text-align: center; }
+
+.tree-link:hover {
+  background: var(--surface-2);
+  color: var(--paper);
+}
+
+.tree-link.active {
+  background: var(--surface-2);
+  color: var(--amber);
+  box-shadow: inset 3px 0 0 var(--amber);
+}
+
+.tree-footer {
+  margin-top: 22px;
+  padding: 14px 22px 0;
+  border-top: 1px solid var(--line);
+}
+
+.tree-footer .social-row { display: flex; gap: 10px; margin-top: 10px; }
+
+.tree-footer .social-row a {
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.15s ease;
+}
+.tree-footer .social-row a:hover { color: var(--amber); border-color: var(--amber-dim); }
+
+/* ---------- Main content ---------- */
+
+main { padding: 0; min-width: 0; }
+
+.topbar {
+  display: none;
+}
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 56px 40px 90px;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  color: var(--amber);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+h1.page-title {
+  font-family: var(--mono);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--paper);
+}
+
+.page-sub {
+  color: var(--muted);
+  font-size: 1.02rem;
+  margin: 0 0 40px;
+  max-width: 60ch;
+}
+
+/* ---------- Terminal hero (home page) ---------- */
+
+.terminal {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px -30px rgba(0,0,0,0.7);
+  margin-bottom: 44px;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+.terminal-dot.r { background: #e5605a; }
+.terminal-dot.y { background: #e5b95a; }
+.terminal-dot.g { background: #5ac89c; }
+
+.terminal-title {
+  margin-left: 8px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.terminal-body {
+  padding: 26px 28px 30px;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+}
+
+.terminal-line { margin: 0 0 6px; color: var(--muted); }
+.terminal-line .prompt { color: var(--mint); }
+.terminal-line .cmd { color: var(--paper); }
+
+.terminal-output {
+  margin: 14px 0 0;
+  padding-left: 2px;
+  color: var(--paper);
+  font-family: var(--body-font);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.terminal-output .who {
+  font-family: var(--mono);
+  color: var(--amber);
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.terminal-output .role-line { color: var(--muted); margin-bottom: 16px; }
+
+.quote-block {
+  border-left: 3px solid var(--amber);
+  padding-left: 16px;
+  margin: 20px 0 0;
+  font-style: italic;
+  color: var(--paper);
+}
+
+/* ---------- Prose section ---------- */
+
+.section {
+  margin-bottom: 46px;
+}
+
+.section h2 {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  color: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  margin: 0 0 18px;
+}
+
+.section p { color: var(--paper); }
+
+/* ---------- Contact card ---------- */
+
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+}
+
+.contact-card dl {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 10px 16px;
+  margin: 0;
+}
+
+.contact-card dt {
+  font-family: var(--mono);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.contact-card dd {
+  margin: 0;
+  color: var(--paper);
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.social-icons a {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--muted);
+  transition: all 0.15s ease;
+}
+.social-icons a:hover { color: var(--ink); background: var(--amber); border-color: var(--amber); }
+
+/* ---------- Semester / directory blocks ---------- */
+
+.semester {
+  margin-bottom: 40px;
+}
+
+.semester-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  color: var(--mint);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.semester-label::before { content: "▸"; color: var(--mint); }
+
+.semester-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* commit-style project card */
+
+.commit {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.commit:last-child { border-bottom: none; }
+
+.commit-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commit-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--amber);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.commit-line {
+  width: 1px;
+  flex: 1;
+  background: var(--line);
+  margin-top: 4px;
+}
+
+.commit-title {
+  font-family: var(--mono);
+  font-size: 1.02rem;
+  color: var(--paper);
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+.commit-subject {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--amber);
+  background: rgba(242, 166, 60, 0.1);
+  border: 1px solid rgba(242, 166, 60, 0.3);
+  border-radius: 5px;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+}
+
+.commit-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.commit-gallery img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  display: block;
+}
+
+.commit-gallery figure { margin: 0; }
+.commit-gallery figcaption {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-top: 4px;
+  text-align: center;
+}
+
+.attachment-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--mint);
+  border: 1px solid rgba(111, 227, 180, 0.35);
+  background: rgba(111, 227, 180, 0.08);
+  padding: 5px 10px;
+  border-radius: 7px;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+/* empty state */
+.empty-state {
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 40px 30px;
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--mono);
+}
+.empty-state .glyph { font-size: 1.6rem; display: block; margin-bottom: 10px; }
+
+/* skills chips (resume) */
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--paper);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 6px 13px;
+}
+
+.timeline-mini {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.timeline-mini a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.timeline-mini a:hover { border-color: var(--amber-dim); transform: translateX(3px); }
+.timeline-mini .tm-year { font-family: var(--mono); color: var(--paper); font-weight: 700; }
+.timeline-mini .tm-desc { font-size: 0.85rem; color: var(--muted); }
+.timeline-mini .tm-arrow { color: var(--amber); font-family: var(--mono); }
+
+footer.page-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+  padding-top: 24px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+/* ---------- Mobile nav toggle ---------- */
+
+.mobile-topbar {
+  display: none;
+}
+
+@media (max-width: 880px) {
+  .shell { grid-template-columns: 1fr; }
+
+  .tree-nav {
+    position: static;
+    height: auto;
+    display: none;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .tree-nav.open { display: block; }
+
+  .mobile-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .mobile-topbar .name {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .mobile-topbar button {
+    font-family: var(--mono);
+    background: var(--surface-2);
+    color: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 7px 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+
+  .page { padding: 34px 20px 70px; }
+  .contact-card dl { grid-template-columns: 90px 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
