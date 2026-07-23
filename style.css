@@ -1037,13 +1037,13 @@ margin-bottom:28px;
 color:rgba(226,232,240,0.75);
 }
 
-..light .about-stats-card,
+.light .about-stats-card,
 .light .feature-card,
 .light .resume-panel,
 .light .resume-facts li,
 .light .timeline-content,
 .light .tool-list span{
-background:#f8fafc;
+background:#f5edff;
 }
 
 .light .about-intro,
@@ -1776,7 +1776,7 @@ transform:translateY(-1px);
 }
 
 .light .about-card{
-background:#ffffff;
+background:#f8f0ff;
 }
 
 .light .about-text p{
@@ -1790,7 +1790,7 @@ color:#475569;
 .light .resume-panel,
 .light .contact-info,
 .light .contact-form-card{
-background:#f8fafc;
+background:#f5edff;
 }
 
 .light .highlight strong,
@@ -1806,8 +1806,8 @@ color:#0f172a;
 }
 
 .light .feature-card{
-background:#f8fafc;
-border-color:rgba(15,23,42,0.12);
+background:#f5edff;
+border-color:rgba(124,58,237,0.16);
 }
 
 .light .feature-card h3{
@@ -1819,16 +1819,16 @@ color:#475569;
 }
 
 .light .panel-tag{
-background:rgba(30,64,175,0.12);
-color:#1e3a8a;
-border-color:rgba(30,64,175,0.16);
+background:rgba(124,58,237,0.14);
+color:#6d28d9;
+border-color:rgba(124,58,237,0.2);
 }
 
 .light .hero-badges span,
 .light .skill-list span,
 .light .project-badges span{
-background:rgba(59,130,246,0.16);
-color:#0f172a;
+background:rgba(124,58,237,0.16);
+color:#3b0764;
 }
 
 .light .hero-card-title,
@@ -1853,7 +1853,7 @@ color:#334155;
 }
 
 .light .hero-meta {
-color:#1e3a8a;
+color:#7c3aed;
 }
 
 .light .hero-info-row,
@@ -2046,20 +2046,20 @@ box-shadow:0 18px 45px rgba(15,23,42,.08);
 }
 
 .light .hero-card{
-	background:#ffffff;
-	border-color:rgba(15,23,42,0.08);
-	box-shadow:0 20px 55px rgba(15,23,42,0.12);
+	background:#f3e8ff;
+	border-color:rgba(124,58,237,0.18);
+	box-shadow:0 20px 55px rgba(124,58,237,0.16);
 }
 
 .light .btn,
 .light .cv-btn{
-	background:linear-gradient(135deg, #0f172a, #1e293b);
+	background:linear-gradient(135deg, #7c3aed, #c026d3);
 	color:#f8fafc;
 }
 
 .light .navbar{
-	background:rgba(255,255,255,0.9);
-	box-shadow:0 10px 25px rgba(15,23,42,.12);
+	background:rgba(243,232,255,0.9);
+	box-shadow:0 10px 25px rgba(124,58,237,.14);
 }
 
 .light .navbar a{
@@ -2070,18 +2070,18 @@ box-shadow:0 18px 45px rgba(15,23,42,.08);
 .light .contact-form-card,
 .light .contact-info,
 .light .contact-social{
-	background:#f8fafc;
+	background:#f5edff;
 	color:#0f172a;
-	border:1px solid rgba(15,23,42,0.12);
-	box-shadow:0 20px 50px rgba(15,23,42,0.08);
+	border:1px solid rgba(124,58,237,0.16);
+	box-shadow:0 20px 50px rgba(124,58,237,0.1);
 }
 
 .light .contact-form-card input,
 .light .contact-form-card textarea{
-	background:#eef2f7;
+	background:#f3e8ff;
 	color:#0f172a;
-	border:1px solid rgba(15,23,42,0.28);
-	box-shadow:inset 0 4px 15px rgba(15,23,42,0.08);
+	border:1px solid rgba(124,58,237,0.3);
+	box-shadow:inset 0 4px 15px rgba(124,58,237,0.08);
 }
 
 .light .contact-form-card .field input::placeholder,
@@ -2094,10 +2094,10 @@ box-shadow:0 18px 45px rgba(15,23,42,.08);
 }
 
 .light .contact-form-card .btn{
-	background:linear-gradient(135deg, #0f172a, #1e293b);
+	background:linear-gradient(135deg, #7c3aed, #c026d3);
 	color:#f8fafc;
 	border:none;
-	box-shadow:0 16px 36px rgba(15,23,42,0.16);
+	box-shadow:0 16px 36px rgba(124,58,237,0.22);
 }
 
 .light .contact-form-card .btn:hover{
@@ -2133,9 +2133,9 @@ box-shadow:0 18px 45px rgba(15,23,42,.08);
 .light .certificate-card,
 .light .resume-panel,
 .light .highlight{
-	background:#ffffff;
+	background:#f8f0ff;
 	color:#1f2937;
-	border-color:rgba(15,23,42,0.12);
+	border-color:rgba(124,58,237,0.16);
 }
 
 .light .card h1,
@@ -2199,13 +2199,13 @@ box-shadow:0 18px 45px rgba(15,23,42,.08);
 }
 
 .light .social-row{
-	background:#f8fafc;
-	border:1px solid rgba(15,23,42,0.1);
-	box-shadow:0 14px 30px rgba(15,23,42,0.08);
+	background:#f5edff;
+	border:1px solid rgba(124,58,237,0.14);
+	box-shadow:0 14px 30px rgba(124,58,237,0.08);
 }
 
 .light .social-row:hover{
-	background:#eef2f7;
+	background:#efe0ff;
 }
 
 .light .social-row strong{
