@@ -7,7 +7,7 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#0b1220;
+background:#2b1055;
 color:#e2e8f0;
 overflow-x:hidden;
 transition:.5s;
@@ -16,7 +16,7 @@ cursor: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvM
 
 .light{
 background:#eef2f7;
-color:#1f2937;
+color:#f3edfb;
 transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1), color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
